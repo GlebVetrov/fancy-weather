@@ -1,0 +1,138 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+@mixin sample {
+  padding: 10px;
+  background: #1f7e9a;
+  border: 5px solid #000;
+  border-radius: 15px;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  background-size: cover;
+  background-position: center;
+  background-color: #000;
+
+  .header {
+    @include sample;
+    display: inline-flex;
+    justify-content: center;
+    margin: 20px;
+
+    .control {
+      &-panel {
+        .refresh-img-button {
+          border: 0;
+          background-color: transparent;
+        }
+      }
+    }
+
+    .search-button {
+      border: 0;
+      background-color: transparent;
+    }
+
+    .temperature {
+
+      &-wrapper {
+        padding: 0 10px;
+      }
+
+      &-cel,
+      &-far {
+        border: 0;
+        border-radius: 50%;
+      }
+
+      &-active {
+        background-color: #FF0000;
+      }
+    }
+  }
+
+  .main {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+
+    .city-title {
+      @include sample;
+      display: inline-block;
+    }
+
+    .date {
+      @include sample;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+
+    .row {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+
+      .forecast {
+        @include sample;
+        display: inline-flex;
+        flex-wrap: wrap;
+        margin-bottom: 20px;
+
+        &__item {
+          margin-right: 10px;
+        }
+      }
+
+      .location {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+
+        .map-container {
+          display: inline-block;
+          position: relative;
+          width: 50%;
+          max-height: 500px;
+          min-height: 300px;
+          margin-bottom: 30px;
+          border: 5px solid #000;
+          border-radius: 15px;
+          background-color: #000;
+
+          #map {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            border-radius: 15px;
+          }
+        }
+
+        .coordinate {
+          @include sample;
+          display: inline-block;
+
+          &__item {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+  }
+}
